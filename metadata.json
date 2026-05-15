@@ -1,0 +1,8 @@
+{
+  "name": "Dr.HMF AI Medical Agent",
+  "description": "A professional AI-driven medical diagnostic agent for symptom analysis, disease identification, and medication advisory.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -142,7 +142,7 @@ const ContactPage: React.FC = () => {
                             {status === "success" && (
                                 <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl bg-emerald-500/10 border border-emerald-500/30 p-4 text-emerald-400 font-medium text-sm flex items-center gap-3">
                                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                                    Thank you for reaching out! Your message has been received, and our team will get back to you shortly.
+                                    
                                 </motion.div>
                             )}
 

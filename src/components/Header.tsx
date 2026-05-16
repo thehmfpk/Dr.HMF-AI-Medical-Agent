@@ -112,7 +112,7 @@ import React, { useState, useEffect } from 'react';
 import { Stethoscope, Menu, X, Activity, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export type Page = 'home' | 'analysis' | 'result' | 'medication';
+export type Page = 'home' | 'analysis' | 'result' | 'medication' | 'contact';
 
 interface HeaderProps {
   currentPage: Page;
@@ -135,20 +135,20 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     { name: 'Analysis', id: 'analysis' as Page },
     { name: 'Prediction', id: 'result' as Page },
     { name: 'Treatment', id: 'medication' as Page },
+    { name: 'Contact', id: 'contact' as Page },
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'py-3 bg-black/60 backdrop-blur-2xl border-b border-cyan-500/20' 
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
+          ? 'py-3 bg-black/60 backdrop-blur-2xl border-b border-cyan-500/20'
           : 'py-6 bg-transparent'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        
+
         {/* --- Logo Section --- */}
-        <div 
+        <div
           className="flex items-center gap-4 cursor-pointer group"
           onClick={() => setCurrentPage('home')}
         >
@@ -157,10 +157,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             <div className="relative w-12 h-12 bg-slate-900 border border-white/10 rounded-2xl flex items-center justify-center overflow-hidden group-hover:border-cyan-400/50 transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent" />
               <Stethoscope className="text-cyan-400 relative z-10 group-hover:scale-110 transition-transform duration-500" size={24} />
-              <motion.div 
+              <motion.div
                 animate={{ opacity: [0.2, 0.5, 0.2] }}
                 transition={{ repeat: Infinity, duration: 2 }}
-                className="absolute bottom-0 w-full h-1 bg-cyan-500/30" 
+                className="absolute bottom-0 w-full h-1 bg-cyan-500/30"
               />
             </div>
           </div>
@@ -181,13 +181,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             <button
               key={item.id}
               onClick={() => setCurrentPage(item.id)}
-              className={`relative px-6 py-2 text-[11px] font-mono uppercase tracking-[0.15em] transition-all duration-300 rounded-full ${
-                currentPage === item.id ? 'text-black' : 'text-gray-400 hover:text-white'
-              }`}
+              className={`relative px-6 py-2 text-[11px] font-mono uppercase tracking-[0.15em] transition-all duration-300 rounded-full ${currentPage === item.id ? 'text-black' : 'text-gray-400 hover:text-white'
+                }`}
             >
               <span className="relative z-10">{item.name}</span>
               {currentPage === item.id && (
-                <motion.div 
+                <motion.div
                   layoutId="nav-pill"
                   className="absolute inset-0 bg-cyan-400 rounded-full shadow-[0_0_15px_rgba(34,211,238,0.6)]"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
@@ -199,14 +198,14 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
 
         {/* --- Action Button --- */}
         <div className="hidden md:flex items-center gap-4">
-          <button 
+          <button
             onClick={() => setCurrentPage('analysis')}
             className="group relative px-6 py-2.5 bg-transparent overflow-hidden rounded-lg transition-all"
           >
             <div className="absolute inset-0 border border-cyan-500/30 group-hover:border-cyan-400 transition-colors rounded-lg" />
             <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-cyan-400" />
             <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-cyan-400" />
-            
+
             <span className="relative flex items-center gap-2 text-xs font-black uppercase tracking-widest text-cyan-400 group-hover:text-white transition-colors">
               Core Terminal <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </span>
@@ -214,8 +213,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
         </div>
 
         {/* --- Mobile Menu Toggle --- */}
-        <button 
-          className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white" 
+        <button
+          className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -239,17 +238,16 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                   transition={{ delay: idx * 0.1 }}
                   key={item.id}
                   onClick={() => { setCurrentPage(item.id); setIsOpen(false); }}
-                  className={`flex items-center justify-between p-4 rounded-xl border ${
-                    currentPage === item.id 
-                      ? 'bg-cyan-500/10 border-cyan-500/50 text-cyan-400' 
+                  className={`flex items-center justify-between p-4 rounded-xl border ${currentPage === item.id
+                      ? 'bg-cyan-500/10 border-cyan-500/50 text-cyan-400'
                       : 'bg-white/5 border-white/5 text-gray-400'
-                  }`}
+                    }`}
                 >
                   <span className="font-mono text-sm uppercase tracking-tighter">{item.name}</span>
                   {currentPage === item.id && <Activity size={16} />}
                 </motion.button>
               ))}
-              <button 
+              <button
                 onClick={() => { setCurrentPage('analysis'); setIsOpen(false); }}
                 className="mt-4 w-full py-5 bg-cyan-500 text-black font-black uppercase tracking-[0.2em] text-xs rounded-xl shadow-[0_10px_20px_rgba(34,211,238,0.3)]"
               >

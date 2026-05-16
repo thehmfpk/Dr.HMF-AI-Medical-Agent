@@ -11,7 +11,7 @@
 //     <footer className="relative bg-[#050505] pt-32 pb-12 overflow-hidden">
 //       {/* Decorative background element */}
 //       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
-      
+
 //       <div className="max-w-7xl mx-auto px-6 relative z-10">
 //         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
 //           {/* Brand Column */}
@@ -49,7 +49,7 @@
 //                 <li><button onClick={() => setCurrentPage('medication')} className="text-gray-500 hover:text-cyan-400 transition-colors text-sm">Pharma Advisory</button></li>
 //               </ul>
 //             </div>
-            
+
 //             <div>
 //               <h3 className="text-white font-bold mb-8 flex items-center gap-2">
 //                  <Shield size={16} className="text-cyan-400" /> Compliance
@@ -109,10 +109,10 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
       {/* --- Ambient Background Effects --- */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
-          
+
           {/* --- Brand Column --- */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-4 mb-8 group cursor-pointer" onClick={() => setCurrentPage('home')}>
@@ -126,7 +126,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                 <span className="text-[10px] text-cyan-500/60 tracking-[0.3em] font-mono uppercase font-bold">Medical Intelligence</span>
               </div>
             </div>
-            
+
             <p className="text-lg text-gray-400 leading-relaxed mb-10 max-w-md font-light">
               Pioneering the future of <span className="text-white font-medium">localized diagnostics</span>. Our AI agent processes complex health metrics with surgical precision in real-time.
             </p>
@@ -155,6 +155,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                   { name: 'Diagnostic Hub', id: 'analysis' },
                   { name: 'Risk Profiles', id: 'result' },
                   { name: 'Pharma Advisory', id: 'medication' },
+                  { name: 'Get In Touch', id: 'contact' },
                 ]
               },
               {
@@ -179,12 +180,12 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             ].map((section, idx) => (
               <div key={idx}>
                 <h3 className="text-white font-bold mb-8 flex items-center gap-2 uppercase tracking-widest text-xs">
-                   <span className="text-cyan-400">{section.icon}</span> {section.title}
+                  <span className="text-cyan-400">{section.icon}</span> {section.title}
                 </h3>
                 <ul className="space-y-4">
                   {section.links.map((link, lIdx) => (
                     <li key={lIdx}>
-                      <button 
+                      <button
                         onClick={() => link.id && setCurrentPage(link.id as Page)}
                         className="group flex items-center gap-2 text-gray-500 hover:text-cyan-400 transition-all duration-300 text-sm font-medium"
                       >
@@ -210,7 +211,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               <Activity size={10} /> <span>ENCRYPTED_DATA_TRANSMISSION_ACTIVE</span>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-8 bg-white/5 px-6 py-3 rounded-full border border-white/5">
             {['Privacy Policy', 'Terms of Service', 'Cookie Protocol'].map((text) => (
               <span key={text} className="text-[10px] text-gray-500 hover:text-cyan-400 cursor-pointer transition-colors uppercase tracking-widest font-bold font-mono">

@@ -6,6 +6,7 @@ import HomePage from './components/HomePage';
 import AnalysisPage from './components/AnalysisPage';
 import ResultPage from './components/ResultPage';
 import MedicationPage from './components/MedicationPage';
+import ContactPage from './components/ContactPage';
 import { medicalEncyclopedia, diseaseSymptomMatrix, DiseaseInfo } from './data/medicalData';
 
 export default function App() {
@@ -145,6 +146,18 @@ export default function App() {
                 onBack={() => setCurrentPage('result')}
                 history={history}
               />
+            </motion.div>
+          )}
+
+          {currentPage === 'contact' && (
+            <motion.div
+              key="contact"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ContactPage />
             </motion.div>
           )}
         </AnimatePresence>

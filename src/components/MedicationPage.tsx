@@ -603,7 +603,7 @@ DATE: ${new Date().toLocaleString()}
                 </div>
                 <div className="flex justify-between p-2 rounded bg-zinc-900/30 border border-zinc-900">
                   <span className="text-zinc-500">Confidence Match</span>
-                  <span className="text-green-400 font-bold">98.2%</span>
+                  <span className="text-green-400 font-bold">90%</span>
                 </div>
                 <div className="flex justify-between p-2 rounded bg-zinc-900/30 border border-zinc-900">
                   <span className="text-zinc-500">Session ID</span>
